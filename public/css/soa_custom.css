@@ -24,7 +24,7 @@
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
-  --bs-newc: #900;
+  --bs-newc: rgb(255, 188, 33);
   --bs-newt: rgb(0, 130, 153);
   --bs-primary: #0d6efd;
   --bs-secondary: #6c757d;
@@ -34,7 +34,7 @@
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
-  --bs-newc-rgb: 153, 0, 0;
+  --bs-newc-rgb: 255, 188, 33;
   --bs-newt-rgb: 0, 130, 153;
   --bs-primary-rgb: 13, 110, 253;
   --bs-secondary-rgb: 108, 117, 125;
@@ -1854,7 +1854,7 @@ progress {
 }
 
 .text-bg-newc {
-  color: #fff !important;
+  color: #000 !important;
   background-color: RGBA(var(--bs-newc-rgb), var(--bs-bg-opacity, 1)) !important;
 }
 
@@ -1908,8 +1908,8 @@ progress {
   text-decoration-color: RGBA(var(--bs-newc-rgb), var(--bs-link-underline-opacity, 1)) !important;
 }
 .link-newc:hover, .link-newc:focus {
-  color: RGBA(122, 0, 0, var(--bs-link-opacity, 1)) !important;
-  text-decoration-color: RGBA(122, 0, 0, var(--bs-link-underline-opacity, 1)) !important;
+  color: RGBA(255, 201, 77, var(--bs-link-opacity, 1)) !important;
+  text-decoration-color: RGBA(255, 201, 77, var(--bs-link-underline-opacity, 1)) !important;
 }
 
 .link-newt {
@@ -7031,8 +7031,63 @@ progress {
   font-family: "Fira Code";
   src: url("../fonts/FiraCode-Regular.woff2") format("opentype");
 }
-nav {
+* {
   font-family: "Fira Code";
+}
+
+.bg-gradient-chill {
+  background: linear-gradient(135deg, #09e485 0%, #0291e3 100%);
+}
+
+.bg-gradient-warm {
+  background: linear-gradient(135deg, #F2CD48 0%, #FD803F 100%);
+}
+
+.bg-gradient-warmr {
+  background: linear-gradient(135deg, #FD803F 0%, #F2CD48 100%);
+}
+
+.bg-gradient-hot {
+  background: linear-gradient(135deg, #F9445A 0%, #FD803F 100%);
+}
+
+.bg-gradient-cold {
+  background: linear-gradient(135deg, #8019C6 0%, #2F93CC 100%);
+}
+
+.text-gradient-chill {
+  background-image: linear-gradient(135deg, #09e485 0%, #0291e3 100%);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.text-gradient-warm {
+  background-image: linear-gradient(135deg, #F2CD48 0%, #FD803F 100%);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.text-gradient-warmr {
+  background-image: linear-gradient(135deg, #FD803F 0%, #F2CD48 100%);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.text-gradient-hot {
+  background-image: linear-gradient(135deg, #F9445A 0%, #FD803F 100%);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.text-gradient-cold {
+  background-image: linear-gradient(135deg, #8019C6 0%, #2F93CC 100%);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 /*!
@@ -7065,7 +7120,7 @@ nav {
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
-  --bs-newc: #900;
+  --bs-newc: rgb(255, 188, 33);
   --bs-newt: rgb(0, 130, 153);
   --bs-primary: #0d6efd;
   --bs-secondary: #6c757d;
@@ -7075,7 +7130,7 @@ nav {
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
-  --bs-newc-rgb: 153, 0, 0;
+  --bs-newc-rgb: 255, 188, 33;
   --bs-newt-rgb: 0, 130, 153;
   --bs-primary-rgb: 13, 110, 253;
   --bs-secondary-rgb: 108, 117, 125;
@@ -10007,20 +10062,20 @@ textarea.form-control-lg {
 }
 
 .btn-newc {
-  --bs-btn-color: #fff;
-  --bs-btn-bg: #900;
-  --bs-btn-border-color: #900;
-  --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #820000;
-  --bs-btn-hover-border-color: #7a0000;
-  --bs-btn-focus-shadow-rgb: 168, 38, 38;
-  --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #7a0000;
-  --bs-btn-active-border-color: #730000;
+  --bs-btn-color: #000;
+  --bs-btn-bg: rgb(255, 188, 33);
+  --bs-btn-border-color: rgb(255, 188, 33);
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: #ffc642;
+  --bs-btn-hover-border-color: #ffc337;
+  --bs-btn-focus-shadow-rgb: 217, 160, 28;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: #ffc94d;
+  --bs-btn-active-border-color: #ffc337;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: #900;
-  --bs-btn-disabled-border-color: #900;
+  --bs-btn-disabled-color: #000;
+  --bs-btn-disabled-bg: rgb(255, 188, 33);
+  --bs-btn-disabled-border-color: rgb(255, 188, 33);
 }
 
 .btn-newt {
@@ -10177,19 +10232,19 @@ textarea.form-control-lg {
 }
 
 .btn-outline-newc {
-  --bs-btn-color: #900;
-  --bs-btn-border-color: #900;
-  --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #900;
-  --bs-btn-hover-border-color: #900;
-  --bs-btn-focus-shadow-rgb: 153, 0, 0;
-  --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #900;
-  --bs-btn-active-border-color: #900;
+  --bs-btn-color: rgb(255, 188, 33);
+  --bs-btn-border-color: rgb(255, 188, 33);
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: rgb(255, 188, 33);
+  --bs-btn-hover-border-color: rgb(255, 188, 33);
+  --bs-btn-focus-shadow-rgb: 255, 188, 33;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: rgb(255, 188, 33);
+  --bs-btn-active-border-color: rgb(255, 188, 33);
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  --bs-btn-disabled-color: #900;
+  --bs-btn-disabled-color: rgb(255, 188, 33);
   --bs-btn-disabled-bg: transparent;
-  --bs-btn-disabled-border-color: #900;
+  --bs-btn-disabled-border-color: rgb(255, 188, 33);
   --bs-gradient: none;
 }
 
@@ -13895,7 +13950,7 @@ textarea.form-control-lg {
 }
 
 .text-bg-newc {
-  color: #fff !important;
+  color: #000 !important;
   background-color: RGBA(var(--bs-newc-rgb), var(--bs-bg-opacity, 1)) !important;
 }
 
@@ -13949,8 +14004,8 @@ textarea.form-control-lg {
   text-decoration-color: RGBA(var(--bs-newc-rgb), var(--bs-link-underline-opacity, 1)) !important;
 }
 .link-newc:hover, .link-newc:focus {
-  color: RGBA(122, 0, 0, var(--bs-link-opacity, 1)) !important;
-  text-decoration-color: RGBA(122, 0, 0, var(--bs-link-underline-opacity, 1)) !important;
+  color: RGBA(255, 201, 77, var(--bs-link-opacity, 1)) !important;
+  text-decoration-color: RGBA(255, 201, 77, var(--bs-link-underline-opacity, 1)) !important;
 }
 
 .link-newt {
