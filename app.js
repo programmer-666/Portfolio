@@ -11,6 +11,18 @@ app.get("/", (req, res) => {
 });
 
 app.get("/blog", (req, res) => {
+    res.render("blogs.ejs");
+});
+
+app.get("/project-example", (req, res) => {
+    res.render("project.ejs");
+});
+
+app.get("/cv", (req, res) => {
+    res.render("cv.ejs");
+});
+
+app.get("/blog-example", (req, res) => {
     res.render("blog.ejs");
 });
 
