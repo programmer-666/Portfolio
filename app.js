@@ -2,32 +2,36 @@ import express from "express";
 import morgan from "morgan";
 
 const app = express();
+const mainRoute = express.Router();
 
 app.use(express.static("public"));
 app.use(morgan("combined"));
+app.use("/", mainRoute);
 
-app.get("/", (req, res) => {
+
+mainRoute.get("/", (req, res) => {
     res.render("index.ejs");
 });
 
-app.get("/blog", (req, res) => {
+mainRoute.get("/blog", (req, res) => {
     res.render("blogs.ejs");
 });
 
-app.get("/project-example", (req, res) => {
+mainRoute.get("/project-example", (req, res) => {
     res.render("project.ejs");
 });
 
-app.get("/cv", (req, res) => {
+mainRoute.get("/cv", (req, res) => {
     res.render("cv.ejs");
 });
 
-app.get("/blog-example", (req, res) => {
+mainRoute.get("/blog-example", (req, res) => {
     res.render("blog.ejs");
 });
 
-app.get("/projeler", (req, res) => {
+mainRoute.get("/projeler", (req, res) => {
     res.render("projects.ejs");
 });
 
-app.listen("80");
+
+app.listen(process.env.PORT || 80);
