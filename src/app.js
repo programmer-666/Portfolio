@@ -3,36 +3,36 @@ import compression from "compression";
 import morgan from "morgan";
 
 const app = express();
-const mainRoute = express.Router();
+const mainRouter = express.Router();
 
 app.use(express.static("../public"));
 app.use(compression());
 app.use(morgan("combined"));
 
-app.use("/", mainRoute);
+app.use("/", mainRouter);
 
 
-mainRoute.get("/", (req, res) => {
+mainRouter.get("/", (req, res) => {
     res.render("index.ejs");
 });
 
-mainRoute.get("/blog", (req, res) => {
+mainRouter.get("/blog", (req, res) => {
     res.render("blogs.ejs");
 });
 
-mainRoute.get("/project-example", (req, res) => {
+mainRouter.get("/project-example", (req, res) => {
     res.render("project.ejs");
 });
 
-mainRoute.get("/cv", (req, res) => {
+mainRouter.get("/cv", (req, res) => {
     res.render("cv.ejs");
 });
 
-mainRoute.get("/blog-example", (req, res) => {
+mainRouter.get("/blog-example", (req, res) => {
     res.render("blog.ejs");
 });
 
-mainRoute.get("/projeler", (req, res) => {
+mainRouter.get("/projeler", (req, res) => {
     res.render("projects.ejs");
 });
 
