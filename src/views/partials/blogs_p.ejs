@@ -1,138 +1,31 @@
 <div class="container-flex px-3">
     <div class="row row-cols-lg-2">
-        <div class="col-lg-3 col-md-4">
+        <!--<div class="col-lg-3 col-md-4">
             <div class="card pt-3 border-0">
                 <h5 class="card-title text-center">Etiketler</h5>
                 <div class="card-body text-center">
-                    <button type="button" class="btn px-1 p-0 my-1">lorem</button>
-                    <button type="button" class="btn px-1 p-0 my-1">ipsum</button>
-                    <button type="button" class="btn px-1 p-0 my-1">dolor</button>
-                    <button type="button" class="btn px-1 p-0 my-1">sit</button>
-                    <button type="button" class="btn px-1 p-0 my-1">amet</button>
-                    <button type="button" class="btn px-1 p-0 my-1">kaczynski</button>
+                    <%# tags.forEach(tag => { %>
+                        <a href="#" class="btn px-1 p-0 my-1 border"><%#= tag %></a>
+                    <%# }); %>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-9 col-md-8">
-            <div class="card mb-3 border-0">
-                <a href="/blog-example" class="text-body text-decoration-none">
-                    <div class="row g-0">
-                        <div class="col-lg-12">
-                            <div class="card-body">
-                                <h5 class="card-title text-decoration-underline">Blog Başlığı</h5>
-                                <p class="card-text overflow-scroll">Lorem ipsum, dolor sit amet consectetur adipisicing
-                                    elit. Id fuga eveniet laudantium dolorum quibusdam itaque expedita error iure, totam
-                                    ea voluptatem consequuntur natus voluptatibus doloremque sed, labore hic doloribus
-                                    dolores! Bu kısım kısaltılıp eklenecek.</p>
-                                <p class="card-text"><small class="text-body-secondary">07.05.2024 - 23:44</small>
-                                </p>
+        </div>-->
+        <div class="col-lg-12 col-md-12"><!-- 98LGMD -->
+            <% rows.forEach(row => { %>
+                <div class="card mb-3 border-0">
+                    <a href="/blog/<%- row.title_post %>" class="text-body text-decoration-none">
+                        <div class="row g-0">
+                            <div class="col-lg-12">
+                                <div class="card-body">
+                                    <h5 class="card-title text-decoration-underline"><%- row.title_post %></h5>
+                                    <p class="card-text overflow-scroll"><%- row.summary_post %></p>
+                                    <p class="card-text"><small class="text-body-secondary"><%- row.datetime_blog %></small></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-            </div>
-            <div class="card mb-3 border-0">
-                <a href="/blog-example" class="text-body text-decoration-none">
-                    <div class="row g-0">
-                        <div class="col-lg-12">
-                            <div class="card-body">
-                                <h5 class="card-title text-decoration-underline">Blog Başlığı</h5>
-                                <p class="card-text overflow-scroll">Lorem ipsum, dolor sit amet consectetur adipisicing
-                                    elit. Id fuga eveniet laudantium dolorum quibusdam itaque expedita error iure, totam
-                                    ea voluptatem consequuntur natus voluptatibus doloremque sed, labore hic doloribus
-                                    dolores! Bu kısım kısaltılıp eklenecek.</p>
-                                <p class="card-text"><small class="text-body-secondary">07.05.2024 - 23:44</small>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="card mb-3 border-0">
-                <a href="/blog-example" class="text-body text-decoration-none">
-                    <div class="row g-0">
-                        <div class="col-lg-12">
-                            <div class="card-body">
-                                <h5 class="card-title text-decoration-underline">Blog Başlığı</h5>
-                                <p class="card-text overflow-scroll">Lorem ipsum, dolor sit amet consectetur adipisicing
-                                    elit. Id fuga eveniet laudantium dolorum quibusdam itaque expedita error iure, totam
-                                    ea voluptatem consequuntur natus voluptatibus doloremque sed, labore hic doloribus
-                                    dolores! Bu kısım kısaltılıp eklenecek.</p>
-                                <p class="card-text"><small class="text-body-secondary">07.05.2024 - 23:44</small>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="card mb-3 border-0">
-                <a href="/blog-example" class="text-body text-decoration-none">
-                    <div class="row g-0">
-                        <div class="col-lg-12">
-                            <div class="card-body">
-                                <h5 class="card-title text-decoration-underline">Blog Başlığı</h5>
-                                <p class="card-text overflow-scroll">Lorem ipsum, dolor sit amet consectetur adipisicing
-                                    elit. Id fuga eveniet laudantium dolorum quibusdam itaque expedita error iure, totam
-                                    ea voluptatem consequuntur natus voluptatibus doloremque sed, labore hic doloribus
-                                    dolores! Bu kısım kısaltılıp eklenecek.</p>
-                                <p class="card-text"><small class="text-body-secondary">07.05.2024 - 23:44</small>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="card mb-3 border-0">
-                <a href="/blog-example" class="text-body text-decoration-none">
-                    <div class="row g-0">
-                        <div class="col-lg-12">
-                            <div class="card-body">
-                                <h5 class="card-title text-decoration-underline">Blog Başlığı</h5>
-                                <p class="card-text overflow-scroll">Lorem ipsum, dolor sit amet consectetur adipisicing
-                                    elit. Id fuga eveniet laudantium dolorum quibusdam itaque expedita error iure, totam
-                                    ea voluptatem consequuntur natus voluptatibus doloremque sed, labore hic doloribus
-                                    dolores! Bu kısım kısaltılıp eklenecek.</p>
-                                <p class="card-text"><small class="text-body-secondary">07.05.2024 - 23:44</small>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="card mb-3 border-0">
-                <a href="/blog-example" class="text-body text-decoration-none">
-                    <div class="row g-0">
-                        <div class="col-lg-12">
-                            <div class="card-body">
-                                <h5 class="card-title text-decoration-underline">Blog Başlığı</h5>
-                                <p class="card-text overflow-scroll">Lorem ipsum, dolor sit amet consectetur adipisicing
-                                    elit. Id fuga eveniet laudantium dolorum quibusdam itaque expedita error iure, totam
-                                    ea voluptatem consequuntur natus voluptatibus doloremque sed, labore hic doloribus
-                                    dolores! Bu kısım kısaltılıp eklenecek.</p>
-                                <p class="card-text"><small class="text-body-secondary">07.05.2024 - 23:44</small>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="card mb-3 border-0">
-                <a href="/blog-example" class="text-body text-decoration-none">
-                    <div class="row g-0">
-                        <div class="col-lg-12">
-                            <div class="card-body">
-                                <h5 class="card-title text-decoration-underline">Blog Başlığı</h5>
-                                <p class="card-text overflow-scroll">Lorem ipsum, dolor sit amet consectetur adipisicing
-                                    elit. Id fuga eveniet laudantium dolorum quibusdam itaque expedita error iure, totam
-                                    ea voluptatem consequuntur natus voluptatibus doloremque sed, labore hic doloribus
-                                    dolores! Bu kısım kısaltılıp eklenecek.</p>
-                                <p class="card-text"><small class="text-body-secondary">07.05.2024 - 23:44</small>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
+            <%}); %>
         </div>
     </div>
 </div>
