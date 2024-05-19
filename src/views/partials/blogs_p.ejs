@@ -19,7 +19,16 @@
                                 <div class="card-body">
                                     <h5 class="card-title text-decoration-underline"><%- row.title_post %></h5>
                                     <p class="card-text overflow-scroll"><%- row.summary_post %></p>
-                                    <p class="card-text"><small class="text-body-secondary"><%- row.datetime_blog %></small></p>
+                                    <p class="card-text">
+                                        <small class="text-body-secondary">
+                                            <% row.tags.split(',').forEach(tag => { %>
+                                            <span class="badge text-white text-bg-secondary"><%= tag %></span>
+                                            <%}); %>
+                                        </small>
+                                    </p>
+                                    <p class="card-text">
+                                        <small class="text-body-secondary"><%- row.datetime_blog %></small>
+                                    </p>
                                 </div>
                             </div>
                         </div>

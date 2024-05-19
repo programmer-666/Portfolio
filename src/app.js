@@ -1,92 +1,26 @@
 import morgan from "morgan";
 import express from "express";
-import sqlite3 from "sqlite3";
-import { promisify } from "util";
 import compression from "compression";
 
-const app = express();
-const mainRouter = express.Router();
+import { mainRouter } from "./routes/mainRoute.mjs";
 
-// Middleware
+const app = express();
+
 // Serve static files from the "public" directory
 app.use(express.static("../public"));
-
-// Enable response compression with maximum compression levels
 app.use(compression({
     level: 9,
     memLevel: 9
 }));
-
-// Log HTTP requests using morgan in the "combined" format
 app.use(morgan("dev"));
-
-// Set the view engine to EJS
 app.set("view engine", "ejs");
-
-// Use the main router for all routes starting from "/"
-app.use("/", mainRouter);
-
-mainRouter.get("/", (req, res) => {
-    res.render("index.ejs");
-});
-
-mainRouter.get("/blog", async (req, res, next) => {
-    // Open a read-only connection to the SQLite database
-    const db = new sqlite3.Database("soa_pf.db", sqlite3.OPEN_READONLY, err => {
-        if (err) return next(err);
-    });
-
-    // Promisify the db.all method for async/await usage
-    const dbAll = promisify(db.all.bind(db));
-
-    try {
-        // Fetch all posts
-        const rows = await dbAll(`
-            SELECT blog.datetime_blog,blog.tags_code,blog.share,
-            blog_Posts.title_post,blog_Posts.summary_post FROM blog 
-            INNER JOIN blog_Posts ON blog.id_post=blog_Posts.id_post
-            WHERE blog.share = '1';
-        `);
-        // tags will be add but not all tags, only writted posts tas...
-        // Render the "blogs.ejs" template with the fetched tags
-        res.render("blogs.ejs", { rows });
-    } catch (err) {
-        // Pass any errors to the error handling middleware
-        next(err);
-    } finally {
-        // Ensure the database connection is closed
-        db.close(err => { if (err) return next(err); });
-    }
-});
-
-mainRouter.get("/blog/:blogTitle", (req, res, next) => {
-    console.log(req.params.blogTitle);
-    next();
-    /*res.render("blog.ejs"); */
-});
-
-mainRouter.get("/project-example", (req, res) => {
-    res.render("project.ejs");
-});
-
-mainRouter.get("/cv", (req, res) => {
-    res.render("cv.ejs");
-});
-
-//mainRouter.get("/blog/blog-example", (req, res) => {
-//    res.render("blog.ejs");
-//});
-
-mainRouter.get("/projeler", (req, res) => {
-    res.render("projects.ejs");
-});
-
-// Global error handling middleware
-// Logs the error stack and sends a generic error response
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).send('Error handled');
 });
+
+// Use the main router for all routes starting from "/"
+app.use("/", mainRouter);
 
 // Start the server
 app.listen(process.env.PORT || 80);
