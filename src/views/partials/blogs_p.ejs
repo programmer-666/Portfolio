@@ -11,23 +11,23 @@
             </div>
         </div>-->
         <div class="col-lg-12 col-md-12"><!-- 98LGMD -->
-            <% rows.forEach(row => { %>
+            <% allPosts.forEach(post => { %>
                 <div class="card mb-3 border-0">
-                    <a href="/blog/<%- row.title_post %>" class="text-body text-decoration-none">
+                    <a href="/blog/<%- post.title_post %>" class="text-body text-decoration-none">
                         <div class="row g-0">
                             <div class="col-lg-12">
                                 <div class="card-body">
-                                    <h5 class="card-title text-decoration-underline"><%- row.title_post %></h5>
-                                    <p class="card-text overflow-scroll"><%- row.summary_post %></p>
+                                    <h5 class="card-title text-decoration-underline"><%- post.title_post %></h5>
+                                    <p class="card-text overflow-scroll"><%- post.summary_post %></p>
                                     <p class="card-text">
                                         <small class="text-body-secondary">
-                                            <% row.tags.split(',').forEach(tag => { %>
+                                            <% post.tags.split(',').forEach(tag => { %>
                                             <span class="badge text-white text-bg-secondary"><%= tag %></span>
                                             <%}); %>
                                         </small>
                                     </p>
                                     <p class="card-text">
-                                        <small class="text-body-secondary"><%- row.datetime_blog %></small>
+                                        <small class="text-body-secondary"><%- post.datetime_blog %></small>
                                     </p>
                                 </div>
                             </div>
