@@ -3,10 +3,10 @@
 
 <head>
     <%- include('partials/head_p.ejs') %>
-    <title>Yazı Başlığı</title>
-    <meta name="description" content="Konuyla ilgili özet niteliğinde yazı...">
-    <link rel=”canonical” href=”https://suhaarslan.com/blog“ />
-    <%# buraya route ismi gelecek %>
+    <title><%- bPost.title_post %></title>
+    <meta name="description" content="<%- bPost.summary_post %>">
+    <link rel=”canonical” href=”https://suhaarslan.com/blog/<%- bPost.url_title_post %>“ />
+    <meta name="keywords" content="<%- bPost.tags %>">
 </head>
 <body>
     <div class="container-flex">

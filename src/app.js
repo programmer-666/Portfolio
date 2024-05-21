@@ -1,8 +1,8 @@
 import morgan from "morgan";
 import express from "express";
 import compression from "compression";
-
 import { mainRouter } from "./routes/mainRoute.mjs";
+
 
 const app = express();
 

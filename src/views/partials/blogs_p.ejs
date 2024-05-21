@@ -1,19 +1,19 @@
 <div class="container-flex px-3">
     <div class="row row-cols-lg-2">
-        <!--<div class="col-lg-3 col-md-4">
+        <div class="col-lg-3 col-md-4">
             <div class="card pt-3 border-0">
                 <h5 class="card-title text-center">Etiketler</h5>
                 <div class="card-body text-center">
-                    <%# tags.forEach(tag => { %>
-                        <a href="#" class="btn px-1 p-0 my-1 border"><%#= tag %></a>
-                    <%# }); %>
+                    <% allTags.forEach(tag => { %>
+                        <a href="#" class="btn px-1 p-0 my-1 border"><%= tag.tag %></a>
+                    <% }); %>
                 </div>
             </div>
-        </div>-->
-        <div class="col-lg-12 col-md-12"><!-- 98LGMD -->
-            <% allPosts.forEach(post => { %>
-                <div class="card mb-3 border-0">
-                    <a href="/blog/<%- post.title_post %>" class="text-body text-decoration-none">
+        </div>
+        <div class="col-lg-9 col-md-8"><!-- 98LGMD -->
+            <% allBlogPosts.forEach(post => { %>
+                <div class="card mb-3 border-0 ">
+                    <a href="/blog/<%- post.url_title_post %>" class="text-body text-decoration-none">
                         <div class="row g-0">
                             <div class="col-lg-12">
                                 <div class="card-body">

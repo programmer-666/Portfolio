@@ -1,6 +1,6 @@
 import express from "express";
+import { getAllBlogPosts, getBlogPost, getAllTags} from "../db/blog.mjs"
 
-import { allPosts } from "../db/blog.mjs"
 
 const mainRouter = express.Router();
 
@@ -9,12 +9,15 @@ mainRouter.get("/", (req, res) => {
 });
 
 mainRouter.get("/blog", async (req, res) => {
-    res.render("blogs.ejs", { allPosts: await allPosts() });
+    res.render("blogs.ejs", {
+        allBlogPosts: await getAllBlogPosts(),
+        allTags: await getAllTags()
+    });
 });
 
-mainRouter.get("/blog/:blogTitle", (req, res) => {
-    console.log(req.params.blogTitle);
-    /*res.render("blog.ejs"); */
+mainRouter.get("/blog/:blogTitle", async (req, res, next) => {
+    res.render("blog.ejs", { bPost: await getBlogPost(req.params.blogTitle) });
+    next();
 });
 
 mainRouter.get("/project-example", (req, res) => {
