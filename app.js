@@ -2,21 +2,24 @@ import morgan from "morgan";
 import express from "express";
 import compression from "compression";
 import { mainRouter } from "./routes/mainRoute.mjs";
-
+import path from "path";
 
 const app = express();
 
 // Serve static files from the "public" directory
-app.use(express.static("../public"));
-app.use(compression({
+app.use(express.static(path.join(import.meta.dirname + "/public")));
+
+app.use(
+  compression({
     level: 9,
-    memLevel: 9
-}));
+    memLevel: 9,
+  }),
+);
 app.use(morgan("dev"));
 app.set("view engine", "ejs");
 app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send('Error handled');
+  console.error(err.stack);
+  res.status(500).send("Error handled");
 });
 
 // Use the main router for all routes starting from "/"
