@@ -2,7 +2,7 @@ import compression from "compression";
 import express from "express";
 import morgan from "morgan";
 import path from "path";
-import { mainRouter } from "./routes/mainRoute.mjs";
+import { mainRouter } from "./src/routes/mainRoute.mjs";
 
 const app = express();
 
@@ -16,6 +16,7 @@ app.use(
   }),
 );
 app.use(morgan("dev"));
+app.set("views", "./src/views");
 app.set("view engine", "ejs");
 app.use((err, req, res, next) => {
   console.error(err.stack);
