@@ -17,7 +17,7 @@ const getAllBlogPosts = async () => {
     blog_Posts.url_title_post
     FROM blog
     INNER JOIN blog_Posts ON blog.id_post = blog_Posts.id_post
-    WHERE blog.share = '1';`;
+    WHERE blog.share = '1' ORDER BY blog.datetime_blog DESC;`;
 
   try {
     // Execute the query and return the result as a promise
