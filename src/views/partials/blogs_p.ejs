@@ -1,18 +1,26 @@
 <div class="container-flex px-3">
     <div class="row row-cols-lg-2">
-        <div class="col-lg-3 col-md-4">
-            <div class="top-0 position-sticky card pt-3 border-0">
+        <div class="col-lg-3 col-md-4 d-none d-md-block d-lg-block">
+            <div class="overflow-auto top-0 vh-100 position-sticky card pt-3 border-0">
                 <h5 class="card-title text-center">Etiketler</h5>
+                <div class="card-text text-center">
+                    <a href="#" id="andSort" class="btn px-1 p-0 my-1 border rounded-0">
+                        <span>&&</span>
+                    </a>
+                    <a href="#" id="orSort" class="btn btn-warning px-1 p-0 my-1 border rounded-0">
+                        <span>||</span>
+                    </a>
+                </div>
                 <div class="card-body text-center">
                     <% allTags.forEach(tag => { %>
-                    <a href="#" class="btn px-1 p-0 my-1 border"><%= tag.tag %></a>
+                    <a href="#" id="tag" class="btn px-1 p-0 my-1 border"><%= tag.tag %></a>
                     <% }); %>
                 </div>
             </div>
         </div>
         <div class="col-lg-9 col-md-8">
             <% allBlogPosts.forEach(post => { %>
-            <div class="card mb-3 border-0">
+            <div id="post" class="card mb-3 border-0">
                 <a href="/blog/<%- post.url_title_post %>" class="text-body text-decoration-none">
                     <div class="row g-0">
                         <div class="col-lg-12">
@@ -24,16 +32,12 @@
                                 <p class="card-text">
                                     <small class="text-body-secondary">
                                         <% post.tags.split(',').forEach(tag => { %>
-                                        <span class="badge text-white text-bg-secondary"
-                                            ><%= tag %></span
-                                        >
+                                        <span id="postTag" class="badge text-white text-bg-secondary"><%= tag %></span>
                                         <%}); %>
                                     </small>
                                 </p>
                                 <p class="card-text">
-                                    <small class="text-body-secondary"
-                                        ><%- post.datetime_blog %></small
-                                    >
+                                    <small class="text-body-secondary"><%- post.datetime_blog %></small>
                                 </p>
                             </div>
                         </div>

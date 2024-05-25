@@ -76,7 +76,7 @@ const getAllTags = async () => {
   const db = new sqlite3.Database(dbName, sqlite3.OPEN_READONLY);
 
   // Define the SQL query to retrieve all tags
-  const query = `SELECT tag FROM tags;`;
+  const query = `SELECT tag FROM tags ORDER BY tag ASC;`;
 
   try {
     // Execute the query and return the result as a promise
