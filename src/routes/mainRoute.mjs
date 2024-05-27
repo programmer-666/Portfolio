@@ -1,4 +1,4 @@
-import express from "express";
+import express, { json } from "express";
 import * as cheerio from 'cheerio';
 import { getAllBlogPosts, getAllTags, getBlogPost } from "../db/blog.mjs";
 
@@ -10,6 +10,8 @@ mainRouter.get("/", (req, res) => {
 });
 
 mainRouter.get("/blog", async (req, res) => {
+  req.session.y = 333;
+  res.setHeader("ses", JSON.stringify(req.session));
   res.render("blogs.ejs", {
     allBlogPosts: await getAllBlogPosts(),
     allTags: await getAllTags(),
@@ -41,6 +43,8 @@ mainRouter.get("/cv", (req, res) => {
 });
 
 mainRouter.get("/projeler", (req, res) => {
+  req.session.x = 666;
+  res.setHeader("ses", JSON.stringify(req.session));
   res.render("projects.ejs");
 });
 

@@ -2,12 +2,33 @@ import compression from "compression";
 import express from "express";
 import morgan from "morgan";
 import path from "path";
+import session from "express-session";
 import { mainRouter } from "./src/routes/mainRoute.mjs";
 
 const app = express();
 
-// Serve static files from the "public" directory
 app.use(express.static(path.join(import.meta.dirname + "/public")));
+// Serve static files from the "public" directory
+
+const session1 = session({
+  secret: "s3cx",
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 60000 * 1,
+    secure: true
+  }
+});
+const session2 = session({
+  secret: "s3cx2",
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 60000 * 1,
+    secure: false
+  }
+});
+// Session declerations
 
 app.use(
   compression({
@@ -22,9 +43,14 @@ app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send("Error handled");
 });
+// Mids & Confs
 
-// Use the main router for all routes starting from "/"
+app.use("/projeler", session1);
+app.use("/blog", session2);
+// Applying Sessions
+
 app.use("/", mainRouter);
+// Use the main router for all routes starting from "/"
 
-// Start the server
 app.listen(process.env.PORT || 80);
+// Start the server
