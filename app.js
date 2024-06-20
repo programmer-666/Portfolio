@@ -4,6 +4,7 @@ import morgan from "morgan";
 import path from "path";
 import responseTime from "response-time";
 import { mainRouter } from "./src/routes/mainRoute.mjs";
+import {fileURLToPath} from 'url';
 
 /*
 import helmet from "helmet";
@@ -12,7 +13,10 @@ import session from "express-session";
 
 const app = express();
 
-app.use(express.static(path.join(import.meta.dirname + "/public")));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use(express.static(path.join(__dirname + "/public")));
 // Serve static files from the "public" directory
 /*
 const session1 = session({
