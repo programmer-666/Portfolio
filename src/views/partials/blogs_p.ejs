@@ -5,10 +5,12 @@
                 <h5 class="card-title text-center">Etiketler</h5>
                 <div class="card-text text-center">
                     <a href="#" id="andSort" class="btn px-1 p-0 my-1 border rounded-0">
-                        <span data-bs-placement="left" data-bs-toggle="tooltip" data-bs-title="Ve">&&</span>
+                        <!--<span data-bs-placement="left" data-bs-toggle="tooltip" data-bs-title="Ve">&&</span>-->
+                        <span>&&</span>
                     </a>
                     <a href="#" id="orSort" class="btn btn-warning px-1 p-0 my-1 border rounded-0">
-                        <span data-bs-placement="right" data-bs-toggle="tooltip" data-bs-title="Veya">||</span>
+                        <!--<span data-bs-placement="right" data-bs-toggle="tooltip" data-bs-title="Veya">||</span>-->
+                        <span>||</span>
                     </a>
                 </div>
                 <div class="card-body text-center">
@@ -43,6 +45,17 @@
                 </a>
             </div>
             <%}); %>
+            <div class="col-lg-3 col-md-4 d-none d-md-block d-lg-block">
+                <nav aria-label="...">
+                    <ul class="pagination pagination-sm">
+                        <li class="page-item active" aria-current="page">
+                            <span class="page-link">1</span>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </div>
 </div>
