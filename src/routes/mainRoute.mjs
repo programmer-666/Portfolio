@@ -12,9 +12,11 @@ mainRouter.get("/", (_, res) => {
 
 mainRouter.get("/blog", async (_, res) => {
     const posts = await getAllBlogPosts();
-    console.log(paginator(posts));
+    // console.log(paginator(posts));
 
     res.render("blogs.ejs", {
+        activePage: 1,
+        pages: paginator(posts),
         allBlogPosts: await getAllBlogPosts(),
         allTags: await getAllTags(),
     });
@@ -28,6 +30,7 @@ mainRouter.get("/blog/:blogTitle", async (req, res, next) => {
     $("h1, h2, h3, h4, h5, h6").each((_, element) => {
         const tagName = $(element).prop("tagName").toLowerCase();
         const headingLevel = parseInt(tagName.replace("h", ""), 10);
+
         if (headingLevel >= 1 && headingLevel <= 6) {
             headings.push(`${"#".repeat(headingLevel)} ${$(element).text()}`);
         }

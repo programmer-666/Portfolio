@@ -4,13 +4,16 @@
 // 2. Include any default variable overrides here
 
 $gradients: () !default;
-$gradients: map-merge((
-    chill: linear-gradient(135deg, #09e485 0%,#0291e3 100%),
-    warm: linear-gradient(135deg, #F2CD48 0%,#FD803F 100%),
-    warmr: linear-gradient(135deg, #FD803F 0%,#F2CD48 100%),
-    hot: linear-gradient(135deg, #F9445A 0%,#FD803F 100%),
-    cold: linear-gradient(135deg, #8019C6 0%,#2F93CC 100%)
-), $gradients);
+$gradients: map-merge(
+    (
+        chill: linear-gradient(135deg, #09e485 0%, #0291e3 100%),
+        warm: linear-gradient(135deg, #f2cd48 0%, #fd803f 100%),
+        warmr: linear-gradient(135deg, #fd803f 0%, #f2cd48 100%),
+        hot: linear-gradient(135deg, #f9445a 0%, #fd803f 100%),
+        cold: linear-gradient(135deg, #8019c6 0%, #2f93cc 100%),
+    ),
+    $gradients
+);
 
 // 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
 @import "../node_modules/bootstrap/scss/variables";
@@ -18,8 +21,8 @@ $gradients: map-merge((
 
 // 4. Include any default map overrides here
 $custom-colors: (
-  "newc": rgb(255, 188, 33),
-  "newt": rgb(0, 130, 153)
+    "newc": rgb(255, 188, 33),
+    "newt": rgb(0, 130, 153),
 );
 
 $theme-colors: map-merge($custom-colors, $theme-colors);
@@ -30,11 +33,17 @@ $theme-colors: map-merge($custom-colors, $theme-colors);
 @import "../node_modules/bootstrap/scss/root";
 
 .blog-text {
-  text-align: justify;
+    text-align: justify;
 }
 
 .project-text {
-  text-align: justify;
+    text-align: justify;
+}
+
+.page-item.active .page-link {
+    background-color: $warning;
+    border-color: $warning;
+    color: #000;
 }
 
 // 6. Optionally include any other parts as needed
@@ -51,67 +60,64 @@ $theme-colors: map-merge($custom-colors, $theme-colors);
 
 // 8. Add additional custom code here
 
-
 @font-face {
     font-family: "Fira Code";
     src: url("../fonts/FiraCode-Regular.woff2") format("opentype");
 }
 
 * {
-    font-family: 'Fira Code';
+    font-family: "Fira Code";
 }
 
 // Gradient backgrounds
 @mixin bg-gradient($parent, $gradient) {
-  #{$parent} {
-    background: $gradient;
-  }
+    #{$parent} {
+        background: $gradient;
+    }
 }
 // Gradient text
 @mixin text-gradient($parent, $gradient) {
-  #{$parent} {
-    background-image: $gradient;
-    color:transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-  }
+    #{$parent} {
+        background-image: $gradient;
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
 }
 // Gradient text
 @mixin text-gradient($parent, $gradient) {
-  #{$parent} {
-    background-image: $gradient;
-    color:transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-  }
+    #{$parent} {
+        background-image: $gradient;
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
 }
 // Gradient text
 @mixin text-gradient($parent, $gradient) {
-  #{$parent} {
-    background-image: $gradient;
-    color:transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-  }
+    #{$parent} {
+        background-image: $gradient;
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
 }
 @mixin border-gradient($parent, $gradient) {
-  #{$parent} {
-    border: 20px solid transparent;
-    border-width: 6px;
-    border-style: solid;
-    border-image: $gradient;
-    border-image-slice: 1;
-  }
+    #{$parent} {
+        border: 20px solid transparent;
+        border-width: 6px;
+        border-style: solid;
+        border-image: $gradient;
+        border-image-slice: 1;
+    }
 }
-// Gradient Classes 
+// Gradient Classes
 @each $gradient, $value in $gradients {
-  @include bg-gradient(".bg-gradient-#{$gradient}", $value);
- }
- // Gradient Classes 
- @each $gradient, $value in $gradients {
-  @include text-gradient(".text-gradient-#{$gradient}", $value);
- }
-
- 
+    @include bg-gradient(".bg-gradient-#{$gradient}", $value);
+}
+// Gradient Classes
+@each $gradient, $value in $gradients {
+    @include text-gradient(".text-gradient-#{$gradient}", $value);
+}
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
