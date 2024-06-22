@@ -34,12 +34,11 @@ const getAllBlogPosts = async () => {
     }
 };
 
+/**
+ * This function retrieves a specific blog post based on its URL title.
+ * It connects to the SQLite database in read-only mode.
+ */
 const getBlogPost = async (titleURL) => {
-    /*
-    This function retrieves a specific blog post based on its URL title.
-    It connects to the SQLite database in read-only mode.
-  */
-
     // Open a connection to the SQLite database in read-only mode
     const db = new sqlite3.Database(dbName, sqlite3.OPEN_READONLY);
 
@@ -66,12 +65,11 @@ const getBlogPost = async (titleURL) => {
     }
 };
 
+/**
+ * This function retrieves all tags from the database.
+ * It connects to the SQLite database in read-only mode.
+ */
 const getAllTags = async () => {
-    /*
-    This function retrieves all tags from the database.
-    It connects to the SQLite database in read-only mode.
-  */
-
     // Open a connection to the SQLite database in read-only mode
     const db = new sqlite3.Database(dbName, sqlite3.OPEN_READONLY);
 

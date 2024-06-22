@@ -1,37 +1,38 @@
 {
-        "name": "portfolio",
-        "version": "0.0.1",
-        "description": "Personal portfolio.",
-        "main": "app.js",
-        "type": "module",
-        "scripts": {
-                "test": "echo \"Error: no test specified\" && exit 1",
-                "start": "node app.js"
-        },
-        "repository": {
-                "type": "git",
-                "url": "git+https://github.com/programmer-666/Portfolio.git"
-        },
-        "keywords": ["portfolio", "personal"],
-        "author": "programmer-666",
-        "license": "GPL-3.0",
-        "bugs": {
-                "url": "https://github.com/programmer-666/Portfolio/issues"
-        },
-        "homepage": "https://github.com/programmer-666/Portfolio#readme",
-        "dependencies": {
-                "bootstrap": "^5.3.3",
-                "bootstrap-icons": "^1.11.3",
-                "cheerio": "^1.0.0-rc.12",
-                "compression": "^1.7.4",
-                "ejs": "^3.1.10",
-                "express": "^4.19.2",
-                "express-session": "^1.18.0",
-                "helmet": "^7.1.0",
-                "https": "^1.0.0",
-                "morgan": "^1.10.0",
-                "response-time": "^2.3.2",
-                "scss": "^0.2.4",
-                "sqlite3": "^5.1.7"
-        }
+    "name": "portfolio",
+    "version": "0.0.1",
+    "description": "Personal portfolio.",
+    "main": "app.js",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "clear && node app.js & ./PROCCESS_RESOURCE_UTILIZATION node"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/programmer-666/Portfolio.git"
+    },
+    "keywords": ["portfolio", "personal"],
+    "author": "programmer-666",
+    "license": "GPL-3.0",
+    "bugs": {
+        "url": "https://github.com/programmer-666/Portfolio/issues"
+    },
+    "homepage": "https://github.com/programmer-666/Portfolio#readme",
+    "dependencies": {
+        "bootstrap": "^5.3.3",
+        "bootstrap-icons": "^1.11.3",
+        "cheerio": "^1.0.0-rc.12",
+        "compression": "^1.7.4",
+        "dotenv": "^16.4.5",
+        "ejs": "^3.1.10",
+        "express": "^4.19.2",
+        "express-session": "^1.18.0",
+        "helmet": "^7.1.0",
+        "https": "^1.0.0",
+        "morgan": "^1.10.0",
+        "response-time": "^2.3.2",
+        "scss": "^0.2.4",
+        "sqlite3": "^5.1.7"
+    }
 }

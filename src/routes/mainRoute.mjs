@@ -4,7 +4,7 @@ import { getAllBlogPosts, getAllTags, getBlogPost } from "../db/blog.mjs";
 import { paginator } from "../utils/blog_page_functions.mjs";
 
 const mainRouter = express.Router();
-// root router for website...
+// root
 
 mainRouter.get("/", (_, res) => {
     res.render("index.ejs");
@@ -13,6 +13,8 @@ mainRouter.get("/", (_, res) => {
 mainRouter.get("/blog", async (_, res) => {
     const posts = await getAllBlogPosts();
     // console.log(paginator(posts));
+
+    // need blog?page=1 ...
 
     res.render("blogs.ejs", {
         activePage: 1,

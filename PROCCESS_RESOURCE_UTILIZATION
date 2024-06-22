@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# script for display cpu & mem utilization of any process
+# works well on mac
+# programmer-666
+
+PROCESS_NAME=$1
+
+source .env
+
+if [ $NODE_ENV = "development" ]
+then
+    while :
+    do
+        # NR==1 || # PID 	 %CPU 	 %MEM 	 RSS 	 COMMAND
+        ps au | awk -v proc="$PROCESS_NAME" \
+        '$0 ~ proc {print  $3, "\t", $4, "\t", $6, "\t", $11}' | \
+        grep -v awk | grep -v sh | xargs echo "[PROCINFO-$(date "+%H:%M:%S")]"
+        sleep 1
+    done
+fi
+
+# chmod u+x PROCCESS_RESOURCE_UTILIZATION
+# ./PROCCESS_RESOURCE_UTILIZATION node

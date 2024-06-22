@@ -62,6 +62,7 @@ const tags = [
     { tag: "veri" },
     { tag: "derin öğrenme" },
     { tag: "algoritma" },
+    { tag: "proxmox" },
 ];
 //let __COUNTER = 0;tags.map((element) => {element.tag_value = 2**__COUNTER;__COUNTER += 1;});
 // default tags and tag values
