@@ -14,7 +14,7 @@ mainRouter.get("/blog", async (_, res) => {
     const posts = await getAllBlogPosts();
     // console.log(paginator(posts));
 
-    // need blog?page=1 ...
+    // need blog?page=1 ..
 
     res.render("blogs.ejs", {
         activePage: 1,
