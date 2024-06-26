@@ -21,25 +21,7 @@ const __dirname = path.dirname(__filename);
 
 app.use(express.static(path.join(__dirname + "/public")));
 // Serve static files from the "public" directory
-/*
-const session1 = session({
-  secret: "s3cx",
-  resave: false,
-  saveUninitialized: true,
-  cookie: {
-    maxAge: 60000 * 1, // 60s
-    secure: false
-  }
-});
-const session2 = session({
-  secret: "s3cx2",
-  resave: false,
-  saveUninitialized: true,
-  cookie: {
-    maxAge: 30000 * 1, // 30s
-    secure: false
-  }
-});*/
+
 // Session definitions
 
 app.use(responseTime());
@@ -62,8 +44,6 @@ app.use((err, __, res, _) => {
 });
 // Mids & Confs
 
-//app.use("/projeler", session1);
-//app.use("/blog", session2);
 // Applying Sessions
 
 app.use("/", mainRouter);
