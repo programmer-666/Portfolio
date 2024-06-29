@@ -16,7 +16,7 @@ then
         ps au | awk -v proc="$PROCESS_NAME" \
         '$0 ~ proc {print  $3, "\t", $4, "\t", $6, "\t", $11}' | \
         grep -v awk | grep -v sh | xargs echo "[PROCINFO-$(date "+%H:%M:%S")]"
-        sleep 1
+        sleep 5
     done
 fi
 

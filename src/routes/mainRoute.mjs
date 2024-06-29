@@ -10,15 +10,18 @@ mainRouter.get("/", (_, res) => {
     res.render("index.ejs");
 });
 
-mainRouter.get("/blog", async (_, res) => {
+mainRouter.get("/blog", async (req, res) => {
     const posts = await getAllBlogPosts();
-    // console.log(paginator(posts));
+    const pages = paginator(posts);
 
-    // need blog?page=1 ..
+    // console.log(paginator(posts));
+    console.log("[!] ", req.query.page);
+
+    // need blog?page=1 .. 1 -> req.query.page
 
     res.render("blogs.ejs", {
         activePage: 1,
-        pages: paginator(posts),
+        pages: pages,
         allBlogPosts: await getAllBlogPosts(),
         allTags: await getAllTags(),
     });
