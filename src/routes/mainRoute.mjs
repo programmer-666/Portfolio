@@ -14,15 +14,15 @@ mainRouter.get("/blog", async (req, res) => {
     const posts = await getAllBlogPosts();
     const pages = paginator(posts);
 
-    // console.log(paginator(posts));
+    // console.log(pages);
     console.log("[!] ", req.query.page);
 
     // need blog?page=1 .. 1 -> req.query.page
 
     res.render("blogs.ejs", {
-        activePage: 1,
+        activePage: req.query.page,
         pages: pages,
-        allBlogPosts: await getAllBlogPosts(),
+        allBlogPosts: pages[req.query.page], //await getAllBlogPosts(),
         allTags: await getAllTags(),
     });
 });
