@@ -92,7 +92,58 @@ const getAllTags = async () => {
 };
 
 /**
- *
+ * This functions returns posts within the specified id range.
  */
+const getPostsByIdRange = async (start, end) => {
+    const db = new sqlite3.Database(dbName, sqlite3.OPEN_READONLY);
 
-export { getAllBlogPosts, getAllTags, getBlogPost };
+    const query = `SELECT blog.id_post,blog.datetime_blog,
+    blog.tags,blog.share,blog_Posts.title_post,
+    blog_Posts.summary_post,blog_Posts.url_title_post
+    FROM blog INNER JOIN blog_Posts ON blog.id_post=blog_Posts.id_post
+    WHERE blog.share='1' AND(blog.id_post BETWEEN 0 AND 3)ORDER BY blog.datetime_blog DESC;`;
+
+    try {
+        // Execute the query and return the result as a promise
+        return await promisify(db.all).bind(db)(query);
+    } catch (err) {
+        // Log any errors that occur during query execution
+        console.error(err);
+        return null;
+    } finally {
+        // Ensure the database connection is closed
+        db.close((err) => {
+            if (err) throw err;
+        });
+    }
+};
+
+/**
+ * This function returns all blog posts count.
+ */
+const getPostCount = async () => {
+    const db = new sqlite3.Database(dbName, sqlite3.OPEN_READONLY);
+
+    const query = `SELECT COUNT(id_post)as PostCount FROM blog_Posts;`;
+
+    try {
+        return await promisify(db.get).bind(db)(query);
+    } catch (err) {
+        // Log any errors that occur during query execution
+        console.error(err);
+        return null;
+    } finally {
+        // Ensure the database connection is closed
+        db.close((err) => {
+            if (err) throw err;
+        });
+    }
+};
+
+export {
+    getAllBlogPosts,
+    getAllTags,
+    getBlogPost,
+    getPostsByIdRange,
+    getPostCount,
+};

@@ -1,6 +1,12 @@
 import express from "express";
 import * as cheerio from "cheerio";
-import { getAllBlogPosts, getAllTags, getBlogPost } from "../db/blog.mjs";
+import {
+    getAllBlogPosts,
+    getAllTags,
+    getBlogPost,
+    getPostCount,
+    getPostsByIdRange,
+} from "../db/blog.mjs";
 import { paginator } from "../utils/blog_page_functions.mjs";
 
 const mainRouter = express.Router();
@@ -14,8 +20,11 @@ mainRouter.get("/blog", async (req, res) => {
     const posts = await getAllBlogPosts();
     const pages = paginator(posts);
 
-    console.log(pages);
+    // console.log(pages);
     // console.log("[!] ", req.query.page);
+
+    console.log(await getPostsByIdRange(0, 3));
+    console.log(await getPostCount().PostCount);
 
     // need blog?page=1 .. 1 -> req.query.page
 
